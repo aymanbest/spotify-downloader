@@ -40,4 +40,4 @@ WORKDIR /music
 
 RUN mkdir /dist
 # Entrypoint command
-ENTRYPOINT ["poetry", "run", "spotdl", "web", "--port" , "3000", "--keep-sessions"]
+ENTRYPOINT ["poetry", "run", "spotdl", "web", "--host" , "0.0.0.0", "--port" , "3000", "--keep-sessions" ,"--keep-alive" ,"--web-gui-repo" ,"https://github.com/spotdl/web-ui/tree/master/dist"]
