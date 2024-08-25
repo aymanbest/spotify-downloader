@@ -38,5 +38,6 @@ VOLUME /music
 # Change CWD to /music
 WORKDIR /music
 
+RUN mkdir /dist
 # Entrypoint command
-ENTRYPOINT ["poetry", "run", "spotdl", "web", "--host", "0.0.0.0", "--web-use-output-dir"]
+ENTRYPOINT ["poetry", "run", "spotdl", "web", "--host", "0.0.0.0", "--keep-sessions"]
