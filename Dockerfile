@@ -40,4 +40,4 @@ WORKDIR /music
 
 RUN mkdir /dist
 # Entrypoint command
-ENTRYPOINT ["poetry", "run", "spotdl", "web", "--host", "0.0.0.0", "--keep-sessions"]
+ENTRYPOINT ["poetry", "run", "spotdl", "web", "--host", "3.0.0.0", "--keep-sessions"]
