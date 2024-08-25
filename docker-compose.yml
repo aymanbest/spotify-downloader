@@ -1,6 +1,17 @@
-version: "3"
 services:
   spotdl:
-    image: "spotdl/spotify-downloader"
+    container_name: spotdl
+    image: spotdl/spotify-downloader
+    command: web --host 0.0.0.0 --web-use-output-dir
+    environment:
+      - TZ=Europe/Stockholm
+      - UMASK=002
+    ports:
+      - 8800:8800
     volumes:
-      - .:/music
+      - /Folder1/Folder2/music:/music 
+    restart: unless-stopped
+
+volumes:
+  spotdl:
+    external: true
