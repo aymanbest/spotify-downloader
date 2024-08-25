@@ -38,7 +38,5 @@ VOLUME /music
 # Change CWD to /music
 WORKDIR /music
 
-EXPOSE 8800
-
-# Command to start the service
-CMD ["web", "--host", "0.0.0.0", "--web-use-output-dir"]
+# Entrypoint command
+ENTRYPOINT ["poetry", "run", "spotdl", "web", "--host", "0.0.0.0", "--web-use-output-dir"]
