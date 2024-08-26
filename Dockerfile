@@ -18,7 +18,7 @@ RUN apk add --no-cache \
 RUN pip install --upgrade pip poetry wheel spotipy
 
 # Copy requirements files
-COPY poetry.lock pyproject.toml /
+COPY poetry.lock pyproject.toml
 
 # Install spotdl requirements
 RUN poetry install
@@ -38,6 +38,7 @@ VOLUME /music
 # Change CWD to /music
 WORKDIR /music
 
-RUN mkdir /dist
+COPY dist /music/dist
+
 # Entrypoint command
-ENTRYPOINT ["poetry", "run", "spotdl", "web", "--host" , "0.0.0.0", "--port" , "3000", "--keep-sessions" ,"--keep-alive" ,"--force-update-gui"]
+ENTRYPOINT ["poetry", "run", "spotdl", "web", "--host" , "0.0.0.0", "--port" , "3000", "--keep-sessions" ,"--keep-alive" ,"--web-gui-location" , "/music/dist"]
