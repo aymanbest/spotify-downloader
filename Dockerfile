@@ -18,7 +18,7 @@ RUN apk add --no-cache \
 RUN pip install --upgrade pip poetry wheel spotipy
 
 # Copy requirements files
-COPY poetry.lock pyproject.toml
+COPY poetry.lock pyproject.toml /
 
 # Install spotdl requirements
 RUN poetry install
