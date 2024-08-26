@@ -32,13 +32,14 @@ RUN poetry install
 # Create music directory
 RUN mkdir /music
 
+COPY dist /music/dist
+
 # Create a volume for the output directory
 VOLUME /music
 
 # Change CWD to /music
 WORKDIR /music
 
-COPY dist /music/dist
 
 # Entrypoint command
 ENTRYPOINT ["poetry", "run", "spotdl", "web", "--host" , "0.0.0.0", "--port" , "3000", "--keep-sessions" ,"--keep-alive" ,"--web-gui-location" , "/music/dist"]
